@@ -1,0 +1,184 @@
+/*:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f5f6fa;
+    --border-color: #dcdde1;
+    --text-color: #2f3640;
+    --success-color: #2ecc71;
+    --hover-color: #3498db;
+}*/
+
+/* Общие стили */
+body {
+    font-family: sans-serif; /* Более универсальный шрифт */
+    line-height: 1.6;
+    background-color: #f5f5f5; /* Светлый фон */
+    color: #333; /* Темный текст */
+}
+
+.section {
+    padding: 2rem 0; /* Увеличиваем отступы сверху и снизу */
+}
+
+.container {
+    position: relative; /* Make the container the positioned ancestor */
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Стили для имени файла */
+.filename-container {
+    position: absolute;
+    top: -30px; /* Поднимаем за верхнюю границу контейнера */
+    right: 10px;
+    z-index: 10;
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-family: monospace; /* Моноширинный шрифт */
+    white-space: nowrap; /* Запрещаем перенос строк */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Стили для зоны перетаскивания */
+.drop-zone {
+    max-width: 100%;
+    height: 150px; /* Увеличиваем высоту */
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.2rem; /* Увеличиваем размер шрифта */
+    font-weight: 500;
+    cursor: pointer;
+    color: #777; /* Более темный цвет текста */
+    border: 2px dashed #aaa; /* Менее яркая граница */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease, background-color 0.3s ease; /* Плавные переходы */
+}
+
+.drop-zone--over {
+    border-style: solid;
+    border-color: #009578; /* Меняем цвет границы при наведении */
+    background-color: rgba(0, 149, 120, 0.05); /* Небольшой фон при наведении */
+}
+
+.drop-zone__prompt {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Стили для таблицы */
+.table-container {
+    overflow-x: auto; /* Горизонтальная прокрутка */
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.table th, .table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+/* Стили для кнопки */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease
+}
+
+.button.is-primary {
+    background-color: #009578;
+    color: white;
+}
+
+.button.is-primary:hover {
+    background-color: #007a62;
+}
+
+.button.is-hidden {
+    display: none;
+}
+
+/* Mobile-specific styles */
+@media screen and (max-width: 768px) {
+    .section {
+        padding: 1rem;
+    }
+
+    .container {
+        padding: 10px;
+    }
+    
+    .filename-container {
+        font-size: 0.8rem;
+        padding: 5px 8px;
+        top: 5px;
+        right: 5px;
+    }
+    
+    .drop-zone {
+        min-height: 120px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+    }
+    
+    .drop-zone__prompt p {
+        font-size: 0.9rem;
+    }
+    
+    #result {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .table {
+        font-size: 0.9rem;
+    }
+    
+    .button {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Touch-friendly styles */
+.drop-zone {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent text selection on touch */
+.drop-zone, .button {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
