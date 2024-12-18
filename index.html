@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опросник для сотрудников</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="filename-container">
+                <span id='filenameElem' class="filename"></span>
+            </div>
+            <div class="drop-zone" id="dropZone">
+                <div class="drop-zone__prompt">
+                    <p>Перетащите файл сюда или нажмите для выбора</p>
+                    <input type="file" id="fileInput" class="drop-zone__input" accept=".xlsx" hidden>
+                </div>
+            </div>
+            <div id="output">
+                <div id="result"></div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+    <script src="utils.js"></script>
+    <script src="surveyData.js"></script>
+    <script src="dragAndDrop.js"></script>
+</body>
+</html>
