@@ -1,6 +1,6 @@
 .filename-container {
   position: absolute; /* Position absolutely relative to the nearest positioned ancestor (container) */
-  top: 10px;          /* Adjust top spacing as needed */
+  top: 5px;          /* Adjust top spacing as needed */
   right: 10px;         /* Adjust right spacing as needed */
   z-index: 10;        /* Ensure the filename is above other elements */
   padding: 5px 10px;  /* Add some padding */
