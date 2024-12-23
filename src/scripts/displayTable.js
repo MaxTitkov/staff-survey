@@ -20,9 +20,9 @@ const displayTable = (data) => {
         outputDiv.innerHTML = '<p class="has-text-warning">Нет данных для отображения.</p>';
         return;
     }
-    depressionScores = calculateSurvey(data.slice(2), surveyQuestionsAndScores, 8, 28)
-    anxietyScores = calculateSurvey(data.slice(2), anxietyBackScores, 30, 50)
-    auditScores = calculateSurvey(data.slice(2), auditQuestionsAndScores, 51, 60)
+    depressionScores = calculateSurvey(data.slice(1), surveyQuestionsAndScores, 8, 28)
+    anxietyScores = calculateSurvey(data.slice(1), anxietyBackScores, 30, 50)
+    auditScores = calculateSurvey(data.slice(1), auditQuestionsAndScores, 51, 60)
 
     // Create the table element
     const table = document.createElement('table');
