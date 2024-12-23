@@ -22,7 +22,7 @@ const displayTable = (data) => {
 
     // Create the table element
     const table = document.createElement('table');
-    table.classList.add('table'); // Add Bulma table class for styling (optional)
+    table.classList.add('table', 'is-scrollable');
 
     // Create the table header row
     const headerRow = document.createElement('tr');
@@ -33,7 +33,7 @@ const displayTable = (data) => {
         <th>Бек депрессия</th>
         <th>Бек тревога</th>
         <th>AUDIT</th>
-        <th><input type="checkbox" onclick="toggleAll(this)"></th>
+        <th class='is-hidden-mobile'><input type="checkbox" onclick="toggleAll(this)"></th>
       `;
     table.appendChild(headerRow);
 
@@ -56,13 +56,13 @@ const displayTable = (data) => {
             auditScores[index] >= 16;
     
         row.innerHTML = `
-          <td><button class="button is-link is-hovered" onclick="showAnswers(${person.ID})">${person.ID}</button></td>
+          <td><button class="button is-text modal-btn" onclick="showAnswers(${person.ID})">${person.ID}</button></td>
           <td>${person.name}</td>
-          <td>${person.dob}</td>
+          <td>${person.dob}<input type="checkbox" class="row-checkbox is-hidden-tablet" onclick="showCopyBtn(this)" ${isHighlighted ? 'checked' : ''}></td>
           <td style="background-color: ${depressionScores[index] >= 16 ? 'coral' : 'transparent'}">${depressionScores[index]}</td>
           <td style="background-color: ${anxietyScores[index] >= 36 ? 'coral' : 'transparent'}">${anxietyScores[index]}</td>
           <td style="background-color: ${auditScores[index] >= 16 ? 'coral' : 'transparent'}">${auditScores[index]}</td>
-          <td><input type="checkbox" class="row-checkbox" onclick="showCopyBtn(this)" ${isHighlighted ? 'checked' : ''}></td>
+          <td class='is-hidden-mobile'><input type="checkbox" class="row-checkbox" onclick="showCopyBtn(this)" ${isHighlighted ? 'checked' : ''}></td>
         `;
     
         if (isHighlighted) {
@@ -79,6 +79,7 @@ const displayTable = (data) => {
     // Append the table to the resultDiv
     
     resultDiv.appendChild(table);
+    updateTableHeaders();
 
 }
 
