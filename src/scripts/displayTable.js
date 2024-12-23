@@ -7,7 +7,7 @@ const displayTable = (data) => {
         return;
       }
 
-    const persons = data.slice(2).map((personData, index) => {
+    const persons = data.slice(1).map((personData, index) => {
           return {
             index: index,
             ID: personData[0],
@@ -53,11 +53,15 @@ const displayTable = (data) => {
           <td>${auditScores[index]}</td>
           <td><input type="checkbox" class="row-checkbox" onclick="showCopyBtn(this)"></td>
         `;
-        table.appendChild(row);
+        if(typeof person.name !=='undefined'){
+            table.appendChild(row);
+        }
     });
 
     // Append the table to the resultDiv
+    
     resultDiv.appendChild(table);
+
 }
 
 // Your existing file handling logic, modified to work with both methods
