@@ -45,22 +45,7 @@ const displayTable = (data) => {
             dob: personData[6],
           };
         });
-    // Create table rows for each person
-    // persons.forEach((person, index) => {
-    //     const row = document.createElement('tr');
-    //     row.innerHTML = `
-    //       <td><button class="button is-small is-info" onclick="showAnswers(${person.ID})">${person.ID}</button></td>
-    //       <td>${person.name}</td>
-    //       <td>${person.dob}</td>
-    //       <td>${depressionScores[index]}</td>
-    //       <td>${anxietyScores[index]}</td>
-    //       <td>${auditScores[index]}</td>
-    //       <td><input type="checkbox" class="row-checkbox" onclick="showCopyBtn(this)"></td>
-    //     `;
-    //     if(canConvertToInt(person.ID)){
-    //         table.appendChild(row);
-    //     }
-    // });
+
     persons.forEach((person, index) => {
         const row = document.createElement('tr');
     
