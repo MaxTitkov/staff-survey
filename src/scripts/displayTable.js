@@ -7,22 +7,18 @@ const displayTable = (data) => {
         return;
       }
 
-    const persons = data.slice(1).map((personData, index) => {
-          return {
-            index: index,
-            ID: personData[0],
-            name: personData[5],
-            dob: personData[6],
-          };
-        });
-
+  
     if (!data || data.length === 0) {
         outputDiv.innerHTML = '<p class="has-text-warning">Нет данных для отображения.</p>';
         return;
     }
-    depressionScores = calculateSurvey(data.slice(1), surveyQuestionsAndScores, 8, 28)
-    anxietyScores = calculateSurvey(data.slice(1), anxietyBackScores, 30, 50)
-    auditScores = calculateSurvey(data.slice(1), auditQuestionsAndScores, 51, 60)
+    depressionScores = calculateSurvey(data, surveyQuestionsAndScores, 8, 28)
+    anxietyScores = calculateSurvey(data, anxietyBackScores, 30, 50)
+    auditScores = calculateSurvey(data, auditQuestionsAndScores, 51, 60)
+
+    depressionAnswers = getAnswers(data, surveyQuestionsAndScores, 8, 28)
+    anxietyAnswers = getAnswers(data, anxietyBackScores, 30, 50)
+    auditAnswers = getAnswers(data, auditQuestionsAndScores, 51, 60)
 
     // Create the table element
     const table = document.createElement('table');
@@ -41,19 +37,56 @@ const displayTable = (data) => {
       `;
     table.appendChild(headerRow);
 
+    const persons = data.map((personData, index) => { 
+        return {
+            index: index,
+            ID: personData[0],
+            name: personData[5],
+            dob: personData[6],
+          };
+        });
     // Create table rows for each person
+    // persons.forEach((person, index) => {
+    //     const row = document.createElement('tr');
+    //     row.innerHTML = `
+    //       <td><button class="button is-small is-info" onclick="showAnswers(${person.ID})">${person.ID}</button></td>
+    //       <td>${person.name}</td>
+    //       <td>${person.dob}</td>
+    //       <td>${depressionScores[index]}</td>
+    //       <td>${anxietyScores[index]}</td>
+    //       <td>${auditScores[index]}</td>
+    //       <td><input type="checkbox" class="row-checkbox" onclick="showCopyBtn(this)"></td>
+    //     `;
+    //     if(canConvertToInt(person.ID)){
+    //         table.appendChild(row);
+    //     }
+    // });
     persons.forEach((person, index) => {
         const row = document.createElement('tr');
+    
+        // Проверяем условия для изменения фона и чекбокса
+        const isHighlighted = 
+            depressionScores[index] >= 16 || 
+            anxietyScores[index] >= 36 || 
+            auditScores[index] >= 16;
+    
         row.innerHTML = `
-          <td>${person.ID}</td>
+          <td><button class="button is-link is-hovered" onclick="showAnswers(${person.ID})">${person.ID}</button></td>
           <td>${person.name}</td>
           <td>${person.dob}</td>
-          <td>${depressionScores[index]}</td>
-          <td>${anxietyScores[index]}</td>
-          <td>${auditScores[index]}</td>
-          <td><input type="checkbox" class="row-checkbox" onclick="showCopyBtn(this)"></td>
+          <td style="background-color: ${depressionScores[index] >= 16 ? 'coral' : 'transparent'}">${depressionScores[index]}</td>
+          <td style="background-color: ${anxietyScores[index] >= 36 ? 'coral' : 'transparent'}">${anxietyScores[index]}</td>
+          <td style="background-color: ${auditScores[index] >= 16 ? 'coral' : 'transparent'}">${auditScores[index]}</td>
+          <td><input type="checkbox" class="row-checkbox" onclick="showCopyBtn(this)" ${isHighlighted ? 'checked' : ''}></td>
         `;
-        if(typeof person.name !=='undefined'){
+    
+        if (isHighlighted) {
+            row.style.backgroundColor = 'coral';
+            const copyButton = document.getElementById('copyButton');
+            copyButton.classList.remove('is-hidden');
+        }
+    
+        if (canConvertToInt(person.ID)) {
             table.appendChild(row);
         }
     });

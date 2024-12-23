@@ -27,6 +27,19 @@
             </button>
         </div>
     </section>
+    
+    <div class="modal" id="answersModal">
+        <div class="modal-background" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <div class="box">
+                <h3 class="title is-4">Ответы пациента</h3>
+                <div id="answersContent"></div>
+            </div>
+        </div>
+        <!-- Кнопка закрытия модального окна -->
+        <button class="modal-close is-large" aria-label="close" onclick="closeModal()"></button>
+    </div>
+    
     <script src="src/scripts/xlsx.full.min.js"></script>
     <!-- <script src="src/scripts/touchEvents.js"></script> -->
     <script src="src/scripts/utils.js"></script>
@@ -34,5 +47,6 @@
     <script src="src/scripts/copy.js"></script>
     <script src="src/scripts/dragAndDrop.js"></script>
     <script src="src/scripts/displayTable.js"></script>
+    <script src="src/scripts/modal.js"></script>
 </body>
 </html>
