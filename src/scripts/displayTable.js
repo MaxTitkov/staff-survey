@@ -95,3 +95,4 @@ const processFile = (file) => {
 
     reader.readAsArrayBuffer(file);
 }
+
