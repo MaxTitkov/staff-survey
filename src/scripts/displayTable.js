@@ -16,9 +16,9 @@ const displayTable = (data) => {
     anxietyScores = calculateSurvey(data, anxietyBackScores, 30, 50)
     auditScores = calculateSurvey(data, auditQuestionsAndScores, 51, 60)
 
-    depressionAnswers = getAnswers(data, surveyQuestionsAndScores, 8, 28)
-    anxietyAnswers = getAnswers(data, anxietyBackScores, 30, 50)
-    auditAnswers = getAnswers(data, auditQuestionsAndScores, 51, 60)
+    depressionAnswers = getAnswers(data, surveyQuestionsAndScores, 8, 29)
+    anxietyAnswers = getAnswers(data, anxietyBackScores, 30, 51)
+    auditAnswers = getAnswers(data, auditQuestionsAndScores, 51, 61)
 
     // Create the table element
     const table = document.createElement('table');

@@ -133,7 +133,7 @@ const surveyQuestionsAndScores = {
 };
 const anxietyBackScores = {};
 
-for (let i = 0; i <= 22; i++) {
+for (let i = 0; i <= 21; i++) {
   anxietyBackScores[i] = [
     { text: 'Совсем не беспокоит', score: 0 },
     { text: 'Слегка (Не слишком меня беспокоил)', score: 1 },
