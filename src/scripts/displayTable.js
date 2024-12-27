@@ -13,8 +13,8 @@ const displayTable = (data) => {
         return;
     }
     depressionScores = calculateSurvey(data, surveyQuestionsAndScores, 8, 29)
-    anxietyScores = calculateSurvey(data, anxietyBackScores, 30, 50)
-    auditScores = calculateSurvey(data, auditQuestionsAndScores, 51, 60)
+    anxietyScores = calculateSurvey(data, anxietyBackScores, 30, 51)
+    auditScores = calculateSurvey(data, auditQuestionsAndScores, 51, 61)
 
     depressionAnswers = getAnswers(data, surveyQuestionsAndScores, 8, 29)
     anxietyAnswers = getAnswers(data, anxietyBackScores, 30, 51)
