@@ -52,7 +52,7 @@ const displayTable = (data) => {
         // Проверяем условия для изменения фона и чекбокса
         const isHighlighted = 
             depressionScores[index] >= 16 || 
-            anxietyScores[index] >= 36 || 
+            anxietyScores[index] >= 9 || 
             auditScores[index] >= 16;
     
         row.innerHTML = `
