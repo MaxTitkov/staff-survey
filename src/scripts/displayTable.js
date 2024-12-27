@@ -12,7 +12,7 @@ const displayTable = (data) => {
         outputDiv.innerHTML = '<p class="has-text-warning">Нет данных для отображения.</p>';
         return;
     }
-    depressionScores = calculateSurvey(data, surveyQuestionsAndScores, 8, 28)
+    depressionScores = calculateSurvey(data, surveyQuestionsAndScores, 8, 29)
     anxietyScores = calculateSurvey(data, anxietyBackScores, 30, 50)
     auditScores = calculateSurvey(data, auditQuestionsAndScores, 51, 60)
 
