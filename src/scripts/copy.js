@@ -19,6 +19,8 @@ function copySelectedNames() {
         }
     }
 
+    selectedNames = [...new Set(selectedNames)];
+
     if(selectedNames.length === 0) {
         alert('Please select at least one row');
         return;
